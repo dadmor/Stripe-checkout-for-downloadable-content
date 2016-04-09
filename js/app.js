@@ -9,6 +9,25 @@ angular.module('hakaToRun', ['ngMaterial'])
             select.append($("<option value='"+(i + year)+"' "+(i === 0 ? "selected" : "")+">"+(i + year)+"</option>"))
         }
 
+        $(document).on('submit', '#payment-form', function(event) {
+			
+        	event.preventDefault();
+
+        	Stripe.card.createToken({
+                number: $('.card-number').val(),
+                cvc: $('.card-cvc').val(),
+                exp_month: $('.card-expiry-month').val(),
+                exp_year: $('.card-expiry-year').val(),
+				name: $('.card-holder-name').val(),
+				address_line1: $('.address').val(),
+				address_city: $('.city').val(),
+				address_zip: $('.zip').val(),
+				address_state: $('.state').val(),
+				address_country: $('.country').val()
+            }, stripeResponseHandler);
+
+		});
+
 		Stripe.setPublishableKey( config.stripe.test_pub_key );
  
         function stripeResponseHandler(status, response) {
