@@ -1,5 +1,9 @@
 <?php 
+require_once( '../config.php' );
+require_once( '../lib/Stripe.php' );
+
 $_stripe_seccret_key = "sk_test_AylHsIQMTRhRU6jyfaGfdsD0";
+
 echo '<pre>';
 print_r( $_POST );
 echo '</pre>';
@@ -15,10 +19,7 @@ if ( $_POST  ) {
 		$error = '';
 		$success = '';
 		try {			
-			//if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
-			//throw new Exception("Fill out all required fields.");
-			if ( !isset($_POST['stripeToken']) )
-			throw new Exception("The Stripe Token was not generated correctly");
+			
 			Stripe_Charge::create(array("amount" => 3000,
 			"currency" => "eur",
 			"card" => $_POST['stripeToken'],
