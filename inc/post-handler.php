@@ -1,7 +1,9 @@
 <?php 
 $_stripe_seccret_key = "sk_test_AylHsIQMTRhRU6jyfaGfdsD0";
-
-if ( isset( $_POST ) ) {
+echo '<pre>';
+print_r( $_POST );
+echo '</pre>';
+if ( $_POST  ) {
 
 	Stripe::setApiKey($_stripe_seccret_key);
 		$error = '';
@@ -27,9 +29,7 @@ if ( isset( $_POST ) ) {
 			</div>';
 		}
 	
-	echo '<pre>';
-	print_r( $_POST );
-	echo '</pre>';
+	
 
 }
 ?>
