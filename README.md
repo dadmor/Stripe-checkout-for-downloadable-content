@@ -1,3 +1,1 @@
 # hakaToRun
-
-init
