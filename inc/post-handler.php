@@ -8,8 +8,7 @@ if ( $_POST  ) {
 	Stripe::setApiKey($_stripe_seccret_key);
 		$error = '';
 		$success = '';
-		try {
-			var_dump('true');
+		try {			
 			//if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
 			throw new Exception("Fill out all required fields.");
 			if (!isset($_POST['stripeToken']))
@@ -21,12 +20,13 @@ if ( $_POST  ) {
 			$success = '<div class="alert alert-success">
 			<strong>Success!</strong> Your payment was successful.
 			</div>';
+			print_r($success);
 		}
-		catch (Exception $e) {
-			var_dump('false');
+		catch (Exception $e) {			
 			$error = '<div class="alert alert-danger">
 			<strong>Error!</strong> '.$e->getMessage().'
 			</div>';
+			print_r($error);
 		}
 	
 	
