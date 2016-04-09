@@ -9,7 +9,7 @@ if ( $_POST  ) {
 		$error = '';
 		$success = '';
 		try {
-			print_r('true');
+			var_dump('true');
 			//if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
 			throw new Exception("Fill out all required fields.");
 			if (!isset($_POST['stripeToken']))
@@ -23,7 +23,7 @@ if ( $_POST  ) {
 			</div>';
 		}
 		catch (Exception $e) {
-			print_r('false');
+			var_dump('false');
 			$error = '<div class="alert alert-danger">
 			<strong>Error!</strong> '.$e->getMessage().'
 			</div>';
