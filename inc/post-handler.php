@@ -3,7 +3,13 @@ $_stripe_seccret_key = "sk_test_AylHsIQMTRhRU6jyfaGfdsD0";
 echo '<pre>';
 print_r( $_POST );
 echo '</pre>';
+
 if ( $_POST  ) {
+
+	$_POST['street'] = 'streetowa 10';
+    $_POST['city'] => 'Koszalin';
+    $_POST['state'] => 'ZE';
+    $_POST['zip'] => '23-233';
 
 	Stripe::setApiKey($_stripe_seccret_key);
 		$error = '';
