@@ -16,13 +16,13 @@ if ( $_POST  ) {
 		$success = '';
 		try {			
 			//if (empty($_POST['street']) || empty($_POST['city']) || empty($_POST['zip']))
-			throw new Exception("Fill out all required fields.");
-			if (!isset($_POST['stripeToken']))
+			//throw new Exception("Fill out all required fields.");
+			if ( !isset($_POST['stripeToken']) )
 			throw new Exception("The Stripe Token was not generated correctly");
 			Stripe_Charge::create(array("amount" => 3000,
 			"currency" => "eur",
 			"card" => $_POST['stripeToken'],
-			"description" => $_POST['email']));
+			"description" => $_POST['stripeEmail']));
 			$success = '<div class="alert alert-success">
 			<strong>Success!</strong> Your payment was successful.
 			</div>';
