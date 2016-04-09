@@ -1,9 +1,0 @@
-{
-	"paymant":{
-		"provider":"stripe",
-		"keys":{
-			"pub_key_test":"pk_test_KHwfantLkT6ytJ1YHFHwgSdF",
-			"pub_key_live":""
-		}	
-	}
-}
