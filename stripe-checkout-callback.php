@@ -1,6 +1,6 @@
 <?php 
-require_once( '../config.php' );
-require_once( '../lib/Stripe.php' );
+//require_once( '../config.php' );
+require_once( 'stripe-checkout-lbraries/Stripe.php' );
 
 $_stripe_seccret_key = "sk_test_AylHsIQMTRhRU6jyfaGfdsD0";
 
@@ -9,7 +9,6 @@ print_r( $_POST );
 echo '</pre>';
 
 if ( $_POST  ) {
-
 
 
 	Stripe::setApiKey($_stripe_seccret_key);
