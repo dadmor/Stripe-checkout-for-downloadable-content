@@ -19,13 +19,12 @@ if ( $_POST  ) {
 			
 			$success = '<div class="alert alert-success">
 			<strong>Success!</strong> Your payment was successful.
-			</div>';
-			print_r($success);
+			</div>';			
 
 		    /* START FORCED DOWNLOAD YOUR FILE */
 		    $file_url = "../stripe-download/wp-dashboard-mockups.zip";
-		    //$file_url = basename($file_url);
-		    header("Content-disposition: attachment; filename=$file_url");
+		    $file_name = basename($file_url);
+		    header("Content-disposition: attachment; filename=$file_name");
   			header("Content-type: application/zip");
 			readfile($file_url);
 		    exit;
