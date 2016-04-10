@@ -23,7 +23,7 @@ if ( $_POST  ) {
 			</div>';			
 
 		    /* START FORCED DOWNLOAD YOUR FILE */
-		    $file_url = "../stripe-download/wp-dashboard-mockups.zip";
+		    $file_url = "stripe-download/wp-dashboard-mockups.zip";
 		    $file_name = basename($file_url);
 		    header("Content-disposition: attachment; filename=$file_name");
   			header("Content-type: application/zip");
