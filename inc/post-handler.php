@@ -26,15 +26,9 @@ if ( $_POST  ) {
 			</div>';
 			print_r($success);
 
-
-
-
-
 		    // DOWNLOAD
-		    $file_url = "../download/test.zip";
-
+		    $file_url = "../download/wp-dashboard-mockups.zip";
 		    //$file_url = basename($file_url);
-
 		    header("Content-disposition: attachment; filename=$file_url");
   			header("Content-type: application/zip");
 			readfile($file_url);
