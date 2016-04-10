@@ -33,24 +33,10 @@ if ( $_POST  ) {
 		    // DOWNLOAD
 		    $file_url = "../download/test.zip";
 
-		    //$file_url = basename($yourfile);
+		    //$file_url = basename($file_url);
 
-		    if (strstr($_SERVER['HTTP_USER_AGENT'], "MSIE")) {
-			    header('Content-Type: "application/octet-stream"');
-			    header('Content-Disposition: attachment; filename="'.basename($file_url).'"');
-			    header('Expires: 0');
-			    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-			    header("Content-Transfer-Encoding: binary");
-			    header('Pragma: public');
-			    header("Content-Length: ".filesize($file_url));
-			} else {
-			    header('Content-Type: "application/octet-stream"');
-			    header('Content-Disposition: attachment; filename="'.basename($file_url).'"');
-			    header("Content-Transfer-Encoding: binary");
-			    header('Expires: 0');
-			    header('Pragma: no-cache');
-			    header("Content-Length: ".filesize($file_url));
-			}
+		    header("Content-disposition: attachment; filename=$file_url");
+  			header("Content-type: application/zip");
 			readfile($file_url);
 
 		    
