@@ -10,10 +10,7 @@ echo '</pre>';
 
 if ( $_POST  ) {
 
-	$_POST['street'] = 'streetowa 10';
-    $_POST['city'] = 'Koszalin';
-    $_POST['state'] = 'ZE';
-    $_POST['zip'] = '23-233';
+
 
 	Stripe::setApiKey($_stripe_seccret_key);
 		$error = '';
@@ -28,6 +25,26 @@ if ( $_POST  ) {
 			<strong>Success!</strong> Your payment was successful.
 			</div>';
 			print_r($success);
+
+
+
+
+
+		    // DOWNLOAD
+		    $yourfile = "../download/test.zip";
+
+		    $file_name = basename($yourfile);
+
+		    header("Content-Type: application/zip");
+		    header("Content-Disposition: attachment; filename=$file_name");
+		    header("Content-Length: " . filesize($yourfile));
+
+		    readfile($yourfile);
+		    exit;
+
+
+
+
 		}
 		catch (Exception $e) {			
 			$error = '<div class="alert alert-danger">
